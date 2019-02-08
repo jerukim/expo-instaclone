@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const pkg = require('../../package.json');
 
 const dev = process.env.NODE_ENV === 'development';
+console.log('QWERTY', dev);
 
 const db = dev
   ? new Sequelize(`postgres://localhost:5432/${pkg.name}`, {

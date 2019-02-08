@@ -1,4 +1,4 @@
-import axio from '../axios';
+import ax, { baseURL } from '../url';
 import axios from 'axios';
 
 const GET_USER = 'GET_USER';
@@ -14,7 +14,7 @@ export const removeUser = () => ({ type: REMOVE_USER });
 
 export const me = () => async dispatch => {
   try {
-    const res = await axio.get('/auth/me');
+    const res = await ax.get('/auth/me');
     dispatch(getUser(res.data || defaultUser));
   } catch (err) {
     console.error(err);
@@ -30,7 +30,12 @@ export const auth = (
 ) => async dispatch => {
   let res;
   try {
-    res = await axio.post(`/auth/${method}`, { username, password, email, name });
+    res = await ax.post(`/auth/${method}`, {
+      username,
+      password,
+      email,
+      name,
+    });
   } catch (authError) {
     return dispatch(getUser({ error: authError }));
   }
@@ -44,7 +49,7 @@ export const auth = (
 
 export const logout = () => async dispatch => {
   try {
-    await axio.post('/auth/logout');
+    await ax.post('/auth/logout');
     dispatch(removeUser());
   } catch (err) {
     console.error(err);

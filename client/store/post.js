@@ -1,5 +1,5 @@
 import axios from 'axios';
-import axio from '../axios';
+import { baseURL } from '../url';
 import { updatedHomeFeed } from './index';
 
 const GET_USER_POSTS = 'GET_USER_POSTS';

@@ -1,4 +1,5 @@
-const db = require('../../server/db');
+require('../../secrets');
+const db = require('../../server/db/db');
 const {
   User,
   Post,
