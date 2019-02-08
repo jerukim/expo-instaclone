@@ -1,7 +1,7 @@
 {
   "name": "instaclone",
   "version": "0.0.1",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "client/index.js",
   "scripts": {
     "start": "node server/index.js",
     "expo-start": "expo start",

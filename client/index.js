@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { AppRegistry } from 'react-native';
+import { registerRootComponent } from 'expo';
 import App from './App';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -20,4 +20,4 @@ class root extends React.Component {
   }
 }
 
-AppRegistry.registerComponent(appName, () => root);
+registerRootComponent(root);
