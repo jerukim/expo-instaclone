@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+export const baseURL =
+  'Instaclone-env-1.cnnhnf83mp.us-east-2.elasticbeanstalk.com';
+
 const axio = axios.create({
-  process.env.NODE_ENV === 'development' ? process.env.DEV_URL : process.env.URL
+  baseURL,
 });
 
 export default axio;
