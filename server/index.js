@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') require('../secrets');
+console.log(process.env.NODE_ENV);
+
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
