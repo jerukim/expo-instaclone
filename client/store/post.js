@@ -4,12 +4,12 @@ import { updatedHomeFeed } from './index';
 
 const GET_USER_POSTS = 'GET_USER_POSTS';
 const GET_USER_FEED = 'GET_USER_FEED';
+const REMOVE_POSTS = 'REMOVE_POSTS';
 
 const gotUserPosts = posts => ({
   type: GET_USER_POSTS,
   posts,
 });
-
 const gotUserFeed = posts => ({
   type: GET_USER_FEED,
   posts,
@@ -67,6 +67,8 @@ export default function(state = defaultState, action) {
       return { ...state, ...action.posts };
     case GET_USER_POSTS:
       return;
+    case REMOVE_POSTS:
+      return defaultState;
     default:
       return state;
   }

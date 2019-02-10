@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, SafeAreaView, Button, Image, ScrollView } from 'react-native';
-import { removeUser, fetchUserData } from '../../store';
+import { removeUser, fetchUserData, removeHomeFeed } from '../../store';
 
 class UserScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -13,6 +13,7 @@ class UserScreen extends React.Component {
   logout = () => {
     const { navigate } = this.props.navigation;
     this.props.removeUser();
+    this.props.removeHomeFeed();
     navigate('Auth');
   };
 
@@ -54,6 +55,7 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   removeUser: () => dispatch(removeUser()),
   fetchUserData: id => dispatch(fetchUserData(id)),
+  removeHomeFeed: () => dispatch(removeHomeFeed()),
 });
 
 export default connect(
