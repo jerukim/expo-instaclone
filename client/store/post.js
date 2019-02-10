@@ -14,6 +14,7 @@ const gotUserFeed = posts => ({
   type: GET_USER_FEED,
   posts,
 });
+export const removePosts = () => ({ type: REMOVE_POSTS });
 
 export const getUserPosts = userId => async dispatch => {
   try {

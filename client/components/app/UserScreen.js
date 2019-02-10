@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Text, SafeAreaView, Button, Image, ScrollView } from 'react-native';
-import { removeUser, fetchUserData, removeHomeFeed } from '../../store';
+import {
+  removeUser,
+  fetchUserData,
+  removeHomeFeed,
+  removePosts,
+} from '../../store';
 
 class UserScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -14,6 +19,7 @@ class UserScreen extends React.Component {
     const { navigate } = this.props.navigation;
     this.props.removeUser();
     this.props.removeHomeFeed();
+    this.props.removePosts();
     navigate('Auth');
   };
 
@@ -56,6 +62,7 @@ const mapDispatch = dispatch => ({
   removeUser: () => dispatch(removeUser()),
   fetchUserData: id => dispatch(fetchUserData(id)),
   removeHomeFeed: () => dispatch(removeHomeFeed()),
+  removePosts: () => dispatch(removePosts()),
 });
 
 export default connect(
