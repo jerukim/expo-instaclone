@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Text } from 'react-native';
 
 export default class PhotoPreviewScreen extends React.Component {
   render() {
     return (
       <View>
-        <Image />
+        <Text>HELLO WORLD</Text>
       </View>
     );
   }

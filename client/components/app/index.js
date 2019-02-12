@@ -6,6 +6,7 @@ import {
 import HomeScreen from './HomeScreen';
 import ExploreScreen from './ExploreScreen';
 import CameraScreen from './CameraScreen';
+import PhotoPreviewScreen from './PhotoPreviewScreen';
 import ActivityScreen from './ActivityScreen';
 import UserScreen from './UserScreen';
 
@@ -41,6 +42,12 @@ const PostStack = createStackNavigator(
       screen: CameraScreen,
       navigationOptions: {
         headerTitle: 'Camera',
+      },
+    },
+    Preview: {
+      screen: PhotoPreviewScreen,
+      navigationOptions: {
+        headerTitle: 'Preview',
       },
     },
   },
