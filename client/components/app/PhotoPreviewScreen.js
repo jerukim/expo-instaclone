@@ -3,9 +3,10 @@ import { View, Image, Text } from 'react-native';
 
 export default class PhotoPreviewScreen extends React.Component {
   render() {
+    const { uri } = this.props.navigation.getParam('photo');
     return (
       <View>
-        <Text>HELLO WORLD</Text>
+        <Image source={{ uri }} style={{ width: 350, height: 350 }} />
       </View>
     );
   }

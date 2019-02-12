@@ -67,8 +67,7 @@ export default class CameraScreen extends React.Component {
                 onPress={async () => {
                   if (this.camera) {
                     let photo = await this.camera.takePictureAsync();
-                    console.log(photo);
-                    navigate('Preview');
+                    navigate('Preview', { photo });
                   }
                 }}
               >
