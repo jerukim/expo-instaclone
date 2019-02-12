@@ -14,6 +14,7 @@ export default class CameraScreen extends React.Component {
   }
   render() {
     const { hasCameraPermission } = this.state;
+    const { navigate } = this.props.navigation;
     if (hasCameraPermission === null) {
       return <View />;
     } else if (hasCameraPermission === false) {
@@ -67,6 +68,7 @@ export default class CameraScreen extends React.Component {
                   if (this.camera) {
                     let photo = await this.camera.takePictureAsync();
                     console.log(photo);
+                    navigate('Preview');
                   }
                 }}
               >
