@@ -5,7 +5,7 @@ import {
 
 import HomeScreen from './HomeScreen';
 import ExploreScreen from './ExploreScreen';
-import PostScreen from './PostScreen';
+import CameraScreen from './CameraScreen';
 import ActivityScreen from './ActivityScreen';
 import UserScreen from './UserScreen';
 
@@ -37,15 +37,15 @@ const ExploreStack = createStackNavigator(
 );
 const PostStack = createStackNavigator(
   {
-    Post: {
-      screen: PostScreen,
+    Camera: {
+      screen: CameraScreen,
       navigationOptions: {
-        headerTitle: 'All Photos',
+        headerTitle: 'Camera',
       },
     },
   },
   {
-    initialRouteName: 'Post',
+    initialRouteName: 'Camera',
   }
 );
 const ActivityStack = createStackNavigator(
