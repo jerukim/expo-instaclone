@@ -1,14 +1,30 @@
 import React from 'react';
-import { View, Image, Text, Dimensions } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Dimensions,
+  Image,
+  TextInput,
+} from 'react-native';
 
 export default class NewPostScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      text: '',
+    };
+  }
   render() {
     const { uri } = this.props.navigation.getParam('photo');
     const width = Dimensions.get('window').width;
     return (
-      <View>
+      <KeyboardAvoidingView behavior="padding" enabled>
         <Image source={{ uri }} style={{ width, height: width }} />
-      </View>
+        <TextInput
+          style={{ height: 40 }}
+          placeholder="Write a caption..."
+          onChangeText={text => this.setState({ text })}
+        />
+      </KeyboardAvoidingView>
     );
   }
 }
