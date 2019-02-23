@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   StyleSheet,
+  View,
   KeyboardAvoidingView,
   Dimensions,
   Image,
   TextInput,
-  Header,
 } from 'react-native';
+import { Header } from 'react-navigation';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +23,7 @@ export default class NewPostScreen extends React.Component {
     super();
     this.state = {
       text: '',
+      height: 0,
     };
   }
   render() {
@@ -30,18 +32,20 @@ export default class NewPostScreen extends React.Component {
     return (
       <KeyboardAvoidingView
         styles={styles.container}
-        keyboardVerticalOffset={50}
-        behavior="position"
+        keyboardVerticalOffset={Header.HEIGHT + 30}
+        behavior="height"
         enabled
       >
-        <Image source={{ uri }} style={{ width, height: width }} />
-        <TextInput
-          style={{ height: 200 }}
-          multiline={true}
-          numberOfLines
-          placeholder="Write a caption..."
-          onChangeText={text => this.setState({ text })}
-        />
+        <View>
+          <Image source={{ uri }} style={{ width, height: width }} />
+          <TextInput
+            style={{ height: 60 }}
+            multiline={true}
+            numberOfLines={4}
+            placeholder="Write a caption..."
+            onChangeText={text => this.setState({ text })}
+          />
+        </View>
       </KeyboardAvoidingView>
     );
   }
