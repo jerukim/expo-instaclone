@@ -64,9 +64,9 @@ export default class CameraScreen extends React.Component {
                   alignSelf: 'flex-end',
                   alignItems: 'center',
                 }}
-                onPress={async () => {
+                onPress={() => {
                   if (this.camera) {
-                    let photo = await this.camera.takePictureAsync();
+                    let photo = this.camera.takePictureAsync();
                     navigate('Post', { photo });
                   }
                 }}

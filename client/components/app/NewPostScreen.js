@@ -24,11 +24,19 @@ export default class NewPostScreen extends React.Component {
     this.state = {
       text: '',
       height: 0,
+      width: 0,
+      uri: '',
     };
   }
-  render() {
-    const { uri } = this.props.navigation.getParam('photo');
+
+  async componentDidMount() {
+    const { uri } = await this.props.navigation.getParam('photo');
     const width = Dimensions.get('window').width;
+    this.setState({ uri, width });
+  }
+
+  render() {
+    const { uri, width } = this.state;
     return (
       <KeyboardAvoidingView
         styles={styles.container}
