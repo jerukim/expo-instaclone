@@ -1,29 +1,53 @@
 import React from 'react';
 import {
+  StyleSheet,
+  View,
   KeyboardAvoidingView,
   Dimensions,
   Image,
   TextInput,
 } from 'react-native';
+import { Header } from 'react-navigation';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default class NewPostScreen extends React.Component {
   constructor() {
     super();
     this.state = {
       text: '',
+      height: 0,
     };
   }
   render() {
     const { uri } = this.props.navigation.getParam('photo');
     const width = Dimensions.get('window').width;
     return (
-      <KeyboardAvoidingView behavior="padding" enabled>
-        <Image source={{ uri }} style={{ width, height: width }} />
-        <TextInput
-          style={{ height: 40 }}
-          placeholder="Write a caption..."
-          onChangeText={text => this.setState({ text })}
-        />
+      <KeyboardAvoidingView
+        styles={styles.container}
+        keyboardVerticalOffset={Header.HEIGHT + 30}
+        behavior="height"
+        enabled
+      >
+        <View>
+          <Image source={{ uri }} style={{ width, height: width }} />
+          <TextInput
+            style={{ height: 60 }}
+            multiline={true}
+            numberOfLines={4}
+            returnKeyType="done"
+            blurOnSubmit={true}
+            placeholder="Write a caption..."
+            onChangeText={text => this.setState({ text })}
+          />
+        </View>
       </KeyboardAvoidingView>
     );
   }
