@@ -42,6 +42,8 @@ export default class NewPostScreen extends React.Component {
             style={{ height: 60 }}
             multiline={true}
             numberOfLines={4}
+            returnKeyType="done"
+            blurOnSubmit={true}
             placeholder="Write a caption..."
             onChangeText={text => this.setState({ text })}
           />
